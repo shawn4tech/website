@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shawn's Website</title>
+    <link rel="stylesheet" href="http://github.com/shawn4tech/website/assets/css/main.css">
+    
+    
+</head>
+  <body>
+    <!-- NAV -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a href="http://github.com/shawn4tech/website/" class="navbar-brand"><img src="http://github.com/shawn4tech/website/assets/images/logo.png" height="30" alt="logo"></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="http://github.com/shawn4tech/website/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://github.com/shawn4tech/website/pages" class="nav-link">Archive</a>
+                </li>
+                <li class="nav-item">
+                        <a href="http://github.com/shawn4tech/website/pages/search" class="nav-link">Search</a>
+                    </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://github.com/shawn4tech/website/pages/projects/" id="projects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Projects
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="projects">
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#web-progrmming">Web Programming</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#machine-learning">Machine Learning</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#computer-vision">Computer Vision</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#other-projects">Other Projects</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#undergrad-projects">Undergrad Projects</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="about" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="about">
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/aboutme">About Me</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/aboutwebsite/">About Website</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <form class="form-inline d-none d-lg-block" action="http://www.google.com/search" method="get">
+            <input name="q" class="form-control mr-sm-2" type="search" placeholder="Google Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+    <div class="container-fluid">
+      <div class="row" style="min-height: 70vh;">
+        <div class="col-md-2 d-none d-md-block" style="background-color: #f1f1f1">
+          
+        </div>
+        <div class="col-md-8 markdown-body" style="padding: 15px 0px 15px 0px;">
+          <div id="post" class="container pt-3">
+  <div class="row">
+    <div class="col">
+    <p class="lead text-info">
+      Aug 16, 2018
+    </p>
+    <h1>CSS Summary</h1>
+    <article>
+      <h1 id="1-how-to-use-it-in-html-file">1. How to use it in HTML file</h1>
+<h2 id="11-内联方式">1.1 内联方式</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1</span> <span class="na">style=</span><span class="s">""</span><span class="nt">&gt;&lt;/h1&gt;</span> 
+</code></pre></div></div>
+
+<h2 id="12-内部样式表">1.2 内部样式表</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+    <span class="nt">h1</span> <span class="p">{</span><span class="err">...</span><span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div></div>
+<h2 id="13-外部样式表">1.3 外部样式表</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"style.css"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+</code></pre></div></div>
+
+<h1 id="2-features">2. Features:</h1>
+<ul>
+  <li>继承性</li>
+  <li>层叠性</li>
+  <li>优先级
+    <ul>
+      <li>高：内联</li>
+      <li>中：外部样式表或内部样式表，就近优先</li>
+      <li>低：浏览器默认设置</li>
+      <li>重复定义时，以最后一次为准</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="3-selector">3. Selector</h1>
+
+<ul>
+  <li>元素选择器：
+    <blockquote>
+      <p>html<br />
+h1<br />
+h2</p>
+    </blockquote>
+  </li>
+  <li>类选择器
+    <blockquote>
+      <p>.className</p>
+    </blockquote>
+  </li>
+  <li>元素类选择器
+    <blockquote>
+      <p>h1.important</p>
+    </blockquote>
+  </li>
+  <li>id选择器
+    <blockquote>
+      <p>#id</p>
+    </blockquote>
+  </li>
+  <li>选择器分组
+    <blockquote>
+      <p>用, 隔开</p>
+    </blockquote>
+
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span><span class="o">,</span> <span class="nt">p</span><span class="nc">.important</span> <span class="p">{</span>  
+  <span class="err">...</span>  
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>派生选择器<br />
+根据元素的上下文定义<br />
+如：h1元素中的span元素
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span> <span class="nt">span</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>伪类选择器<br />
+为某些选择器添加效果<br />
+Syntax: 选择器:伪类
+    <ul>
+      <li>:link</li>
+      <li>:active</li>
+      <li>:visited</li>
+      <li>:hover</li>
+      <li>:focus</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="4-尺寸和边框">4. 尺寸和边框</h1>
+
+<h2 id="41-样式单位">4.1 样式单位</h2>
+<ul>
+  <li>%</li>
+  <li>in : inch</li>
+  <li>cm</li>
+  <li>mm</li>
+  <li>pt : 1/72 inch</li>
+  <li>px</li>
+  <li>em : 1em 当前字体尺寸，2em 当前字体尺寸两倍</li>
+  <li>rgb(x,x,x)</li>
+  <li>rgb(x%, x%, x%)</li>
+  <li>#rrggbb</li>
+  <li>#rgb</li>
+</ul>
+
+<h2 id="42-尺寸">4.2 尺寸</h2>
+<ul>
+  <li>width</li>
+  <li>height</li>
+  <li>overflow: 内容超出元素框时
+    <ul>
+      <li>visible   默认，显示内容</li>
+      <li>hidden  隐藏超出部分</li>
+      <li>scroll  总显示滚动条</li>
+      <li>auto    超出时显示滚动条</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="43-边框">4.3 边框</h2>
+<ul>
+  <li>border: width style color;</li>
+  <li>border-left/right/top/bottom: width style color;</li>
+  <li>border-left/right/top/bottom-width:</li>
+  <li>border-left/right/top/bottom-style:</li>
+  <li>border-left/right/top/bottom-color:</li>
+</ul>
+
+<h2 id="44-框模型">4.4 框模型</h2>
+
+<p><strong>Demonstrating the Box Model</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+<span class="nt">div</span> <span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="n">grey</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">300px</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">25px</span> <span class="nb">solid</span> <span class="no">blue</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">25px</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">25px</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">25px</span><span class="p">;</span>
+    <span class="nl">outline</span><span class="p">:</span> <span class="m">50px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span>
+    <span class="nl">opacity</span><span class="p">:</span> <span class="m">0.6</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>Demonstrating the Box Model<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>The CSS box model is essentially a box that wraps around every HTML element. It consists of: borders, padding, margins, outline, and the actual content.<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;div&gt;</span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/css_box_model.png" alt="css_box_model" /></p>
+
+<ul>
+  <li>margin：外边距，border外面的空白</li>
+  <li>border：</li>
+  <li>padding: 内边距，border和内容之间的距离</li>
+  <li>
+    <p>height/width: 内容的宽和高</p>
+  </li>
+  <li>padding: top right bottom left</li>
+  <li>margin: top right bottom left</li>
+  <li>margin: top_bottom left_right</li>
+  <li>margin: auto 由浏览器计算</li>
+</ul>
+
+<h1 id="5-background">5. Background</h1>
+<ul>
+  <li>background-color</li>
+  <li>background-image: url(“…”);
+    <ul>
+      <li>background-repeat:
+        <ul>
+          <li>repeat (default)</li>
+          <li>repeat-x</li>
+          <li>repeat-y</li>
+          <li>no-repeat</li>
+        </ul>
+      </li>
+      <li>background-position:
+        <ul>
+          <li>x% y%</li>
+          <li>x y</li>
+          <li>left/right/top/bottom/center</li>
+        </ul>
+      </li>
+      <li>background-attachment:
+        <ul>
+          <li>scroll: default</li>
+          <li>fixed: 背景不动</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="6-text">6. Text</h1>
+<h2 id="61-text-control">6.1 Text control</h2>
+<ul>
+  <li>font-family:</li>
+  <li>font-size</li>
+  <li>font-weight: normal/bold</li>
+  <li>color:</li>
+  <li>text-align:</li>
+  <li>text-decoration</li>
+  <li>line-height</li>
+  <li>text-indent</li>
+</ul>
+
+<h2 id="62-table">6.2 Table</h2>
+<ul>
+  <li>padding:</li>
+  <li>width/height</li>
+  <li>border</li>
+  <li>vertical-align: top/middle/bottom</li>
+  <li>border-collapse: separate/collapse<br />
+ 单元格如果也有边框，默认是相邻的单元格边框单独显示，可以合为单线</li>
+  <li>border-spacing: val (val1 val2)<br />
+ 单元格边框之间的距离，val1水平值 val2垂直值</li>
+</ul>
+
+<h1 id="7-display">7. Display</h1>
+<p>display:</p>
+<ul>
+  <li>none  不显示</li>
+  <li>block 块元素</li>
+  <li>inline 内联元素</li>
+</ul>
+
+<h1 id="8-cursor">8. Cursor</h1>
+
+<ul>
+  <li>default</li>
+  <li>pointer</li>
+  <li>crosshair</li>
+  <li>text</li>
+  <li>wait</li>
+  <li>help</li>
+  <li>…</li>
+</ul>
+
+<h1 id="9-list">9. List</h1>
+<ul>
+  <li>list-style-type:<br />
+// for ul
+    <ul>
+      <li>none</li>
+      <li>disc</li>
+      <li>circle</li>
+      <li>square</li>
+    </ul>
+
+    <p>// for ol</p>
+    <ul>
+      <li>none</li>
+      <li>decimal</li>
+      <li>lower-roman</li>
+      <li>upper-roman</li>
+    </ul>
+  </li>
+  <li>list-style-image:url(photo.gif);</li>
+</ul>
+
+<h1 id="10-position">10. Position</h1>
+<h2 id="101-普通流定位">10.1 普通流定位</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>块元素由上到下，行元素由左到右
+</code></pre></div></div>
+
+<h2 id="102-浮动定位">10.2 浮动定位</h2>
+
+<ul>
+  <li>将元素排除普通流</li>
+  <li>元素依旧在包含框内</li>
+  <li>浮动到左边或右边，直到碰到包含框或其他浮动元素</li>
+  <li>多个块元素可能排列一行</li>
+</ul>
+
+<p>float: none/left/right/inherit</p>
+
+<p>clear: none/left/right/both/inherit</p>
+<blockquote>
+  <p>定义元素哪边不允许出现浮动元素（会跑到浮动元素下面）</p>
+</blockquote>
+
+<h2 id="103-相对定位绝对定位固定定位">10.3 相对定位/绝对定位/固定定位</h2>
+
+<h3 id="1031-定位属性">10.3.1 定位属性</h3>
+
+<p>普通流/相对定位/绝对定位/固定定位<br />
+position: static/relative/absolute/fixed/sticky <br />
+偏移属性(必须在position确定时使用)：top, bottom, left, right: val</p>
+
+<p>float/clear: 浮动定位</p>
+
+<p>辅助：</p>
+<ul>
+  <li>
+    <p>z-index: 堆叠顺序</p>
+  </li>
+  <li>
+    <p>static: default<br />
+Static positioned elements are not affected by the top, bottom, left, and right properties.</p>
+  </li>
+  <li>
+    <p>相对定位：原本所在位置被保留<br />
+An element with position: relative; is positioned relative to its normal position.</p>
+  </li>
+  <li>绝对定位：
+    <ul>
+      <li>An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed).</li>
+      <li>However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.</li>
+      <li><strong>Note:</strong> A “positioned” element is one whose position is anything except static.</li>
+      <li>从普通流移除</li>
+      <li>偏移属性，相对于父元素</li>
+      <li>不再占用原有位置</li>
+    </ul>
+  </li>
+  <li>固定定位：
+    <ul>
+      <li>An element with position: fixed; is positioned relative to the viewport</li>
+      <li>从普通流移除</li>
+      <li>不随页面滚动而移动</li>
+    </ul>
+  </li>
+  <li>Sticky:
+    <ul>
+      <li>An element with position: sticky; is positioned based on the user’s scroll position.</li>
+      <li>A sticky element toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it “sticks” in place (like position:fixed).
+        <blockquote>
+          <p>Note: Internet Explorer, Edge 15 and earlier versions do not support sticky positioning. Safari requires a -webkit- prefix (see example below). You must also specify at least one of top, right, bottom or left for sticky positioning to work.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>z-index：</p>
+
+    <ul>
+      <li>解决重叠问题，设置优先级</li>
+      <li>数字越大，优先级越高，离用户越近，可以为负数</li>
+    </ul>
+  </li>
+</ul>
+
+    </article>
+    </div>
+  </div>
+</div>
+        </div>
+        <div class="col-md-2 d-none d-md-block" style="background-color: #f1f1f1; position: relative;">
+          
+            <div id="tocDiv" class="right_sidebar">
+              <h3>Content:</h3>
+              <div id="tocList">
+              </div>
+            </div>
+            <button class="btn btn-outline-success" onclick="topFunction()" id="myBtn" title="Go to top">
+              <i class="fa fa-arrow-up"></i>
+            </button>
+          
+        </div>
+      </div>
+    </div>
+    <footer class="py-5 bg-dark">
+  <div class="container text-center text-light">
+    <div class="row">
+      <div class="col">
+        
+          <div class="social-links">
+  <a target="_blank" href="https://github.com/jShawnTsui">
+    <i class="fab fa-github fa-2x"></i>
+  </a>
+  <a href="mailto:tsuihsiangyang@gmail.com">
+    <i class="fa fa-envelope fa-2x" ></i>
+  </a>
+  <a target="_blank" href="https://linkedin.com/in/xiangyang-cui-b36a76126/">
+    <i class="fab fa-linkedin fa-2x"></i>
+  </a>
+</div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        All content copyright Xiangyang Cui &copy; 2019.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+    <!-- JS -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="http://github.com/shawn4tech/website/assets/js/clipboard.min.js"></script>
+<script src="http://github.com/shawn4tech/website/assets/js/codeselect.js"></script>
+
+
+    <script>
+    $(document).ready(function() {                                                                          
+    $(tocList).empty();                                                            
+    
+    var prevH2Item = null;                                                            
+    var prevH2List = null;                                                            
+    
+    var index = 0;                                                                    
+    $("article h1, article h2").each(function() {                                                     
+    
+        //insert an anchor to jump to, from the TOC link.            
+        var anchor = "<a name='" + index + "'></a>";                 
+        $(this).before(anchor);                                     
+        
+        var li = "<li><a href='#" + index + "'>" + $(this).text() + "</a></li>"; 
+        
+        if( $(this).is("h1") ){                                     
+            prevH2List = $("<ul></ul>");                
+            prevH2Item = $(li);                                     
+            prevH2Item.append(prevH2List);                          
+            prevH2Item.appendTo("#tocList");                        
+        } else {                                                    
+            prevH2List.append(li);                                  
+        }                                                           
+        index++;                                                    
+    });                                                             
+    
+});  
+    </script>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+
+  </body>
+</html>

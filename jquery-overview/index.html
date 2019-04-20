@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shawn's Website</title>
+    <link rel="stylesheet" href="http://github.com/shawn4tech/website/assets/css/main.css">
+    
+    
+</head>
+  <body>
+    <!-- NAV -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a href="http://github.com/shawn4tech/website/" class="navbar-brand"><img src="http://github.com/shawn4tech/website/assets/images/logo.png" height="30" alt="logo"></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="http://github.com/shawn4tech/website/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://github.com/shawn4tech/website/pages" class="nav-link">Archive</a>
+                </li>
+                <li class="nav-item">
+                        <a href="http://github.com/shawn4tech/website/pages/search" class="nav-link">Search</a>
+                    </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://github.com/shawn4tech/website/pages/projects/" id="projects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Projects
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="projects">
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#web-progrmming">Web Programming</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#machine-learning">Machine Learning</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#computer-vision">Computer Vision</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#other-projects">Other Projects</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#undergrad-projects">Undergrad Projects</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="about" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="about">
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/aboutme">About Me</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/aboutwebsite/">About Website</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <form class="form-inline d-none d-lg-block" action="http://www.google.com/search" method="get">
+            <input name="q" class="form-control mr-sm-2" type="search" placeholder="Google Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+    <div class="container-fluid">
+      <div class="row" style="min-height: 70vh;">
+        <div class="col-md-2 d-none d-md-block" style="background-color: #f1f1f1">
+          
+        </div>
+        <div class="col-md-8 markdown-body" style="padding: 15px 0px 15px 0px;">
+          <div id="post" class="container pt-3">
+  <div class="row">
+    <div class="col">
+    <p class="lead text-info">
+      Aug 18, 2018
+    </p>
+    <h1>jQuery Overview</h1>
+    <article>
+      <p>jQuery: JavaScript library</p>
+
+<h1 id="1-jquery-和-dom-的转换">1. jQuery 和 DOM 的转换</h1>
+<ul>
+  <li>DOM —&gt; jQuery
+    <blockquote>
+      <p>$(DOM obj)</p>
+    </blockquote>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'d1'</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">$obj</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+	<span class="nx">$obj</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>jQuery —&gt; DOM
+    <blockquote>
+      <p>$obj.get(0) or $obj.get()[0]</p>
+    </blockquote>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">var</span> <span class="nx">$obj</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#d1'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">obj</span><span class="p">).</span><span class="kd">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="nx">obj</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'hello'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h1 id="2-selector">2. Selector</h1>
+<blockquote>
+  <p>similar to CSS selector</p>
+</blockquote>
+
+<h2 id="21-基本选择器">2.1 基本选择器</h2>
+
+<ul>
+  <li>#id</li>
+  <li>.class</li>
+  <li>element</li>
+  <li>selector1, selector2, …</li>
+  <li>* : all elements</li>
+</ul>
+
+<h2 id="22-层次选择器">2.2 层次选择器</h2>
+<ul>
+  <li>selector1 selector2 … : find 2 in 1</li>
+  <li>selector1 &gt; selector2   : 只找直接字节点</li>
+  <li>selector1 + selector2   : selector1的下一个selector2兄弟节点</li>
+  <li>selector1 ~ selector2   : selector1的所有selector2兄弟</li>
+</ul>
+
+<h2 id="23-过滤选择器">2.3 过滤选择器</h2>
+<blockquote>
+  <p>start by : or []</p>
+</blockquote>
+
+<ul>
+  <li>:first</li>
+  <li>:last</li>
+  <li>:not(selector)</li>
+  <li>:even</li>
+  <li>:odd</li>
+  <li>:eq(index)</li>
+  <li>:gt(index)</li>
+  <li>:lt(index)</li>
+  <li>:nth-child(index/odd/even)	//index starts from 1
+<br /></li>
+  <li>:constains(text)	: 包含text文本的元素</li>
+  <li>:empty			: 不包含子元素和文本的空元素</li>
+  <li>:has(selector)</li>
+  <li>:parent			: 包含子元素或文本的元素
+<br /></li>
+  <li>:hidden</li>
+  <li>
+    <p>:visible</p>
+  </li>
+  <li>[attribute]</li>
+  <li>[attribute = val]</li>
+  <li>[attribute != val]
+<br /></li>
+</ul>
+
+<blockquote>
+  <p>For Form Elements:</p>
+</blockquote>
+
+<ul>
+  <li>:enabled</li>
+  <li>:disabled</li>
+  <li>:checked</li>
+  <li>:selected</li>
+</ul>
+
+<h2 id="24-表单选择器">2.4 表单选择器</h2>
+<ul>
+  <li>:input</li>
+  <li>:text</li>
+  <li>:password</li>
+  <li>:radio</li>
+  <li>:checkbox</li>
+  <li>:submit</li>
+  <li>:image</li>
+  <li>:reset</li>
+  <li>:button</li>
+  <li>:file</li>
+</ul>
+
+<h1 id="3-query">3. Query</h1>
+<blockquote>
+  <p>Query(无参数时) or Modify(有参数时) Methods</p>
+</blockquote>
+
+<ul>
+  <li>html()</li>
+  <li>text()</li>
+  <li>val()</li>
+  <li>attr()</li>
+</ul>
+
+<h1 id="4-dom-操作">4. DOM 操作</h1>
+<h2 id="41-create-dom-element">4.1 Create DOM Element</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="nx">$</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span>
+	<span class="kd">var</span> <span class="nx">$obj</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'&lt;div&gt;hello&lt;/div&gt;'</span><span class="p">);</span>
+</code></pre></div></div>
+<h2 id="42-insert">4.2 Insert</h2>
+
+<ul>
+  <li>子节点
+    <ul>
+      <li>append($obj)</li>
+      <li>prepend($obj)</li>
+    </ul>
+  </li>
+  <li>兄弟节点
+    <ul>
+      <li>after($obj)</li>
+      <li>before($obj)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="43-delete">4.3 delete</h2>
+<ul>
+  <li>remove()</li>
+  <li>remove(selector)</li>
+  <li>empty()</li>
+</ul>
+
+<h2 id="44-clone">4.4 Clone</h2>
+<ul>
+  <li>clone()</li>
+  <li>clone(true) //复制节点也有同样行为，复制处理代码</li>
+</ul>
+
+<h2 id="45-style">4.5 Style</h2>
+<ul>
+  <li>attr(“attr”, “val”);</li>
+  <li>addClass(“ “);</li>
+  <li>removeClass(“”);		// 无参数时表示移除所有样式</li>
+  <li>toggleClass(“ “);		// 切换样式</li>
+  <li>hasClass(“”);</li>
+  <li>css(“”); 		//读取css值</li>
+  <li>css(“”, “”);  //设置样式 可以连缀使用</li>
+</ul>
+
+<h2 id="46-iterate">4.6 Iterate</h2>
+<ul>
+  <li>childen() / childen(selector)</li>
+  <li>next() / next(selector)</li>
+  <li>prev() / prev(selector)</li>
+  <li>siblings / siblings(selector)</li>
+  <li>find(selector)</li>
+  <li>parent()</li>
+</ul>
+
+<h1 id="5-event">5. Event</h1>
+<h2 id="51-event-bind">5.1 Event Bind</h2>
+<ul>
+  <li>$obj.bind(event type, handler function);</li>
+  <li>$obj.eventType(func);</li>
+</ul>
+
+<h2 id="52-get-event-object">5.2 Get Event Object</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="nx">$obj</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+		<span class="p">...;</span>
+	<span class="p">});</span>
+</code></pre></div></div>
+<p>e是jquery对象，是DHTML里面的封装</p>
+
+<h2 id="53-event">5.3 Event</h2>
+<ul>
+  <li>Attributes:
+    <ul>
+      <li>var obj = e.target // return DOM object</li>
+      <li>e.pageX</li>
+      <li>e.pageY</li>
+    </ul>
+  </li>
+  <li>事件冒泡机制
+    <ul>
+      <li>e.stopPropagation()</li>
+    </ul>
+  </li>
+  <li>合成事件
+    <ul>
+      <li>hover</li>
+      <li>toggle() 在多事件响应中切换</li>
+    </ul>
+  </li>
+  <li>模拟操作：
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">$obj</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="nx">EventType</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>e.g.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="nx">$obj</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">"focus"</span><span class="p">);</span>
+	<span class="c1">// 简写： $obj.focus();</span>
+</code></pre></div></div>
+
+<h1 id="6-jquery-动画">6. jQuery 动画</h1>
+
+<ul>
+  <li>show(slow/fast/normal/ms, callback)</li>
+  <li>hide(slow/fast/normal/ms, callback)</li>
+  <li>slideDown()</li>
+  <li>slideUp()</li>
+  <li>fadeIn()</li>
+  <li>
+    <p>fadeOut()</p>
+  </li>
+  <li>自定义：
+    <ul>
+      <li>animate({‘left’: ‘500px’}, ms, callback)</li>
+      <li>animate({‘left’: ‘500px’}, ms).callback();</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="7-类数组">7. 类数组</h1>
+<ul>
+  <li>length</li>
+  <li>each(func)</li>
+  <li>eq(index)</li>
+  <li>get()</li>
+  <li>index(obj)</li>
+</ul>
+
+<h1 id="8-ajax">8. AJAX</h1>
+<ul>
+  <li>load(请求地址，请求参数)
+    <blockquote>
+      <p>有请求参数发POST
+无请求参数发GET</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>get(请求地址，请求参数，回调函数，服务器返回的数据类型(html/text/JSON/xml/script))</p>
+  </li>
+  <li>ajax({})
+    <blockquote>
+      <p><strong>{}内可以设置的参数</strong></p>
+      <ul>
+        <li>url</li>
+        <li>type</li>
+        <li>data</li>
+        <li>dataType</li>
+        <li>sucess</li>
+        <li>error</li>
+        <li>async: true</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+    </article>
+    </div>
+  </div>
+</div>
+        </div>
+        <div class="col-md-2 d-none d-md-block" style="background-color: #f1f1f1; position: relative;">
+          
+            <div id="tocDiv" class="right_sidebar">
+              <h3>Content:</h3>
+              <div id="tocList">
+              </div>
+            </div>
+            <button class="btn btn-outline-success" onclick="topFunction()" id="myBtn" title="Go to top">
+              <i class="fa fa-arrow-up"></i>
+            </button>
+          
+        </div>
+      </div>
+    </div>
+    <footer class="py-5 bg-dark">
+  <div class="container text-center text-light">
+    <div class="row">
+      <div class="col">
+        
+          <div class="social-links">
+  <a target="_blank" href="https://github.com/jShawnTsui">
+    <i class="fab fa-github fa-2x"></i>
+  </a>
+  <a href="mailto:tsuihsiangyang@gmail.com">
+    <i class="fa fa-envelope fa-2x" ></i>
+  </a>
+  <a target="_blank" href="https://linkedin.com/in/xiangyang-cui-b36a76126/">
+    <i class="fab fa-linkedin fa-2x"></i>
+  </a>
+</div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        All content copyright Xiangyang Cui &copy; 2019.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+    <!-- JS -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="http://github.com/shawn4tech/website/assets/js/clipboard.min.js"></script>
+<script src="http://github.com/shawn4tech/website/assets/js/codeselect.js"></script>
+
+
+    <script>
+    $(document).ready(function() {                                                                          
+    $(tocList).empty();                                                            
+    
+    var prevH2Item = null;                                                            
+    var prevH2List = null;                                                            
+    
+    var index = 0;                                                                    
+    $("article h1, article h2").each(function() {                                                     
+    
+        //insert an anchor to jump to, from the TOC link.            
+        var anchor = "<a name='" + index + "'></a>";                 
+        $(this).before(anchor);                                     
+        
+        var li = "<li><a href='#" + index + "'>" + $(this).text() + "</a></li>"; 
+        
+        if( $(this).is("h1") ){                                     
+            prevH2List = $("<ul></ul>");                
+            prevH2Item = $(li);                                     
+            prevH2Item.append(prevH2List);                          
+            prevH2Item.appendTo("#tocList");                        
+        } else {                                                    
+            prevH2List.append(li);                                  
+        }                                                           
+        index++;                                                    
+    });                                                             
+    
+});  
+    </script>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+
+  </body>
+</html>

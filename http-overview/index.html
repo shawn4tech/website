@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shawn's Website</title>
+    <link rel="stylesheet" href="http://github.com/shawn4tech/website/assets/css/main.css">
+    
+    
+</head>
+  <body>
+    <!-- NAV -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a href="http://github.com/shawn4tech/website/" class="navbar-brand"><img src="http://github.com/shawn4tech/website/assets/images/logo.png" height="30" alt="logo"></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="http://github.com/shawn4tech/website/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://github.com/shawn4tech/website/pages" class="nav-link">Archive</a>
+                </li>
+                <li class="nav-item">
+                        <a href="http://github.com/shawn4tech/website/pages/search" class="nav-link">Search</a>
+                    </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://github.com/shawn4tech/website/pages/projects/" id="projects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Projects
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="projects">
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#web-progrmming">Web Programming</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#machine-learning">Machine Learning</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#computer-vision">Computer Vision</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#other-projects">Other Projects</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#undergrad-projects">Undergrad Projects</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="about" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="about">
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/aboutme">About Me</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/aboutwebsite/">About Website</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <form class="form-inline d-none d-lg-block" action="http://www.google.com/search" method="get">
+            <input name="q" class="form-control mr-sm-2" type="search" placeholder="Google Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+    <div class="container-fluid">
+      <div class="row" style="min-height: 70vh;">
+        <div class="col-md-2 d-none d-md-block" style="background-color: #f1f1f1">
+          
+        </div>
+        <div class="col-md-8 markdown-body" style="padding: 15px 0px 15px 0px;">
+          <div id="post" class="container pt-3">
+  <div class="row">
+    <div class="col">
+    <p class="lead text-info">
+      Jul 6, 2018
+    </p>
+    <h1>HTTP Overview</h1>
+    <article>
+      <h1 id="1-url">1. URL</h1>
+<p>Uniform Resource Locator (URL)</p>
+
+<p><strong>Syntax</strong></p>
+
+<p>URL is a subset of URI, so every HTTP URL conforms to the syntax of a generic URI:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scheme:[//authority]path[?query][#fragment]  
+</code></pre></div></div>
+
+<p>where the authority component divides into three subcomponents:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>authority = [userinfo@]host[:port]
+</code></pre></div></div>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://john.doe@www.example.com:123/forum/questions/?tag=networking&amp;order=newest#top
+</code></pre></div></div>
+
+<ul>
+  <li>scheme: https</li>
+  <li>authority: john.doe@www.example.com:123
+    <ul>
+      <li>userinfo: john.doe</li>
+      <li>host: www.example.com</li>
+      <li>port: 123</li>
+    </ul>
+  </li>
+  <li>path: /forum/questions/</li>
+  <li>query: tag=networking&amp;order=newest</li>
+  <li>fragment: top</li>
+</ul>
+
+<p>URL is not case sensitive.</p>
+
+<h1 id="2-http-session">2. HTTP Session</h1>
+<p>Take HTTP/1.0 for example:
+When we want to visit <strong><em>http://www.ese.upenn.edu/about-people/index.php</em></strong>:</p>
+<ol>
+  <li>Browser sends a DNS request to resolve the IP address of www.ese.upenn.edu.</li>
+  <li>DNS resolve www.ese.upenn.edu as 158.130.68.91.</li>
+  <li>Establish a TCP connection between Browser and Server (On server side, IP is 158.130.68.91 and port number is 80).</li>
+  <li>Browser sends a HTTP GET request: GET /about-people/index.php</li>
+  <li>Server response with index.php file.</li>
+  <li>Release TCP connection.</li>
+</ol>
+
+<p>Features:</p>
+<ul>
+  <li>Connectionless: But TCP is connection-oriented.</li>
+  <li>Stateless: Servers don’t remember clients.</li>
+</ul>
+
+<h1 id="3-http10-vs-http11">3. HTTP/1.0 vs HTTP/1.1</h1>
+<p>The drawback of HTTP/1.0 is it has to initialize and release a TCP connection every time the browser send a GET request.</p>
+
+<p>HTTP/1.1 solved it with persistent connection, namely connections will be kept for a while after response. There are two kinds of persistent connection:</p>
+<ol>
+  <li>Without Pipelining: Just Stop and Wait protocol.</li>
+  <li>With Pipelining: Like Sliding Window protocol.</li>
+</ol>
+
+<h1 id="4-proxy-server-web-cache">4. Proxy Server (Web Cache)</h1>
+
+<p>Proxy servers save requests and responses recently. Proxy servers can work at clients side or server side, or middle systems.</p>
+
+<p>Browsers also have caches, which have similar functions.</p>
+
+<h1 id="5-message-format">5. Message Format</h1>
+<ul>
+  <li>▢: space</li>
+  <li>CRLF: Carriage Return</li>
+</ul>
+
+<p>Request Message:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Request Line</td>
+      <td>Method▢URL▢Version|CRLF</td>
+    </tr>
+    <tr>
+      <td>Header</td>
+      <td>Header 1:▢Value 1|CRLF</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Header 2:▢Value 2|CRLF</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>CRLF</td>
+    </tr>
+    <tr>
+      <td>Body</td>
+      <td>Body (Usually don’t use)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Request Methods:</p>
+<ul>
+  <li>GET: Requests a representation of the specified resource.</li>
+  <li>POST: Adds info to server.</li>
+  <li>PUT: Stores a document under the supplied URL.</li>
+  <li>DELETE: Deletes the specified resource.</li>
+  <li>HEAD: Asks for a response identical to that of a GET request, but without the response body.</li>
+  <li>TRACE: Echoes the received request so that a client can see what (if any) changes or additions have been made by intermediate servers.</li>
+  <li>CONNECT: Converts the request connection to a transparent TCP/IP tunnel, usually to facilitate SSL-encrypted communication (HTTPS) through an unencrypted HTTP proxy.</li>
+  <li>OPTION: Returns the HTTP methods that the server supports for the specified URL. This can be used to check the functionality of a web server by requesting ‘*’ instead of a specific resource.</li>
+  <li>PATCH: Applies partial modifications to a resource.</li>
+</ul>
+
+<p>Response Message:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Status Line</td>
+      <td>Version▢Status Code▢Reason Phrase|CRLF</td>
+    </tr>
+    <tr>
+      <td>Header</td>
+      <td>Header 1:▢Value 1|CRLF</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Header 2:▢Value 2|CRLF</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>CRLF</td>
+    </tr>
+    <tr>
+      <td>Body</td>
+      <td>Body (Some responses don’t use)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Status Code:</p>
+<ul>
+  <li>1XX: Request was received and understood.</li>
+  <li>2XX: Request received, understood and accepted.</li>
+  <li>3XX: Redirection</li>
+  <li>4XX: Client errors</li>
+  <li>5XX: Server errors</li>
+</ul>
+
+<h1 id="6-http-cookie">6. HTTP Cookie</h1>
+<p>HTTP is stateless, but sometimes servers want to remember clients.</p>
+
+<p>When a client visits a website using Cookie, the server will assign an ID for this client, and save it in database. When the server sends back HTTP response, it add a header call <em>Set-cookie</em>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set-cookie: 12345678
+</code></pre></div></div>
+
+<p>When browser receives this response, it add this to its Cookie file, including host name and ID. Every time the client visit this website, it will add a header in the Request:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cookie: 12345678
+</code></pre></div></div>
+
+<p>Misunderstanding about Cookie:</p>
+<ul>
+  <li>Virus: Cookie is text file, not executable program.</li>
+  <li>Privacy: Depends on Websites.</li>
+</ul>
+
+<p>Check cookies on Mac OS: Safari → Preferences → Privacy → Manage Website Data.</p>
+
+    </article>
+    </div>
+  </div>
+</div>
+        </div>
+        <div class="col-md-2 d-none d-md-block" style="background-color: #f1f1f1; position: relative;">
+          
+            <div id="tocDiv" class="right_sidebar">
+              <h3>Content:</h3>
+              <div id="tocList">
+              </div>
+            </div>
+            <button class="btn btn-outline-success" onclick="topFunction()" id="myBtn" title="Go to top">
+              <i class="fa fa-arrow-up"></i>
+            </button>
+          
+        </div>
+      </div>
+    </div>
+    <footer class="py-5 bg-dark">
+  <div class="container text-center text-light">
+    <div class="row">
+      <div class="col">
+        
+          <div class="social-links">
+  <a target="_blank" href="https://github.com/jShawnTsui">
+    <i class="fab fa-github fa-2x"></i>
+  </a>
+  <a href="mailto:tsuihsiangyang@gmail.com">
+    <i class="fa fa-envelope fa-2x" ></i>
+  </a>
+  <a target="_blank" href="https://linkedin.com/in/xiangyang-cui-b36a76126/">
+    <i class="fab fa-linkedin fa-2x"></i>
+  </a>
+</div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        All content copyright Xiangyang Cui &copy; 2019.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+    <!-- JS -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="http://github.com/shawn4tech/website/assets/js/clipboard.min.js"></script>
+<script src="http://github.com/shawn4tech/website/assets/js/codeselect.js"></script>
+
+
+    <script>
+    $(document).ready(function() {                                                                          
+    $(tocList).empty();                                                            
+    
+    var prevH2Item = null;                                                            
+    var prevH2List = null;                                                            
+    
+    var index = 0;                                                                    
+    $("article h1, article h2").each(function() {                                                     
+    
+        //insert an anchor to jump to, from the TOC link.            
+        var anchor = "<a name='" + index + "'></a>";                 
+        $(this).before(anchor);                                     
+        
+        var li = "<li><a href='#" + index + "'>" + $(this).text() + "</a></li>"; 
+        
+        if( $(this).is("h1") ){                                     
+            prevH2List = $("<ul></ul>");                
+            prevH2Item = $(li);                                     
+            prevH2Item.append(prevH2List);                          
+            prevH2Item.appendTo("#tocList");                        
+        } else {                                                    
+            prevH2List.append(li);                                  
+        }                                                           
+        index++;                                                    
+    });                                                             
+    
+});  
+    </script>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+
+  </body>
+</html>

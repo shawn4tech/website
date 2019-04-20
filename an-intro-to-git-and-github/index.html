@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shawn's Website</title>
+    <link rel="stylesheet" href="http://github.com/shawn4tech/website/assets/css/main.css">
+    
+    
+</head>
+  <body>
+    <!-- NAV -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a href="http://github.com/shawn4tech/website/" class="navbar-brand"><img src="http://github.com/shawn4tech/website/assets/images/logo.png" height="30" alt="logo"></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="http://github.com/shawn4tech/website/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://github.com/shawn4tech/website/pages" class="nav-link">Archive</a>
+                </li>
+                <li class="nav-item">
+                        <a href="http://github.com/shawn4tech/website/pages/search" class="nav-link">Search</a>
+                    </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://github.com/shawn4tech/website/pages/projects/" id="projects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Projects
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="projects">
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#web-progrmming">Web Programming</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#machine-learning">Machine Learning</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#computer-vision">Computer Vision</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#other-projects">Other Projects</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#undergrad-projects">Undergrad Projects</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="about" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="about">
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/aboutme">About Me</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/aboutwebsite/">About Website</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <form class="form-inline d-none d-lg-block" action="http://www.google.com/search" method="get">
+            <input name="q" class="form-control mr-sm-2" type="search" placeholder="Google Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+    <div class="container-fluid">
+      <div class="row" style="min-height: 70vh;">
+        <div class="col-md-2 d-none d-md-block" style="background-color: #f1f1f1">
+          
+        </div>
+        <div class="col-md-8 markdown-body" style="padding: 15px 0px 15px 0px;">
+          <div id="post" class="container pt-3">
+  <div class="row">
+    <div class="col">
+    <p class="lead text-info">
+      Jun 22, 2018
+    </p>
+    <h1>An Intro to Git and GitHub</h1>
+    <article>
+      <h1 id="an-intro-to-git-and-github">An Intro to Git and GitHub</h1>
+
+<p>首先，要明白Git和GitHub是两种东西。Git和GitHub之间的关系就像是Java和Eclipse的关系。</p>
+
+<p><a href="https://git-scm.com/">Git</a>的定义：</p>
+
+<blockquote>
+  <p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>
+</blockquote>
+
+<p>GitHub的定义：</p>
+
+<blockquote>
+  <p>GitHub is a Git hosting repository that provides developers with tools to ship better code through command line features, issues (threaded discussions), pull requests, code review, or the use of a collection of free and for-purchase apps in the GitHub Marketplace.</p>
+</blockquote>
+
+<p>总的来说，Git是一种管理方法，而GitHub是你放文件的地方，是Git发挥功能的平台。</p>
+
+<p>上面GitHub的定义中，提到了repository，那什么是repository呢？</p>
+
+<blockquote>
+  <p>A Repository, or Git project, encompasses the entire collection of files and folders associated with a project, along with each file’s revision history.</p>
+</blockquote>
+
+<p>Repository就是一个project，它看起来就是一个文件夹，但是它包含了这个文件夹的历史记录，比如说，这个project有几个版本，什么时候添加了什么文件之类的。</p>
+
+<p>我这里只介绍用Git command line only（使用的是Mac的terminal）. 也会用到GitHub的官方网页。所以需要两件事情：</p>
+
+<ol>
+  <li>
+    <p>安装Git；</p>
+  </li>
+  <li>
+    <p>注册GitHub.</p>
+  </li>
+</ol>
+
+<p>(<a href="http://mac.appstorm.net/how-to/utilities-how-to/how-to-use-terminal-the-basics/">Mac terminal tutorial</a>)
+basic terminal commands:</p>
+
+<ul>
+  <li>cd path 转到path目录下</li>
+  <li>mkdir folder_name 建立一个文件夹</li>
+  <li>echo “some text here” » file.txt 写一些文字到文件里</li>
+  <li>touch 建立一个文件</li>
+  <li>ls 显示文件夹下面的文件（ -a 可以显示隐藏文件）</li>
+</ul>
+
+<h2 id="step-1-create-a-local-git-repository">Step 1: Create a local git repository</h2>
+<p>首先创建一个普通的文件夹。（可以手动创建）
+    cd ~/Documents
+    mkdir myproject</p>
+
+<p>进入这个文件夹
+    cd myproject
+然后把它变成repository: 
+    git init
+myproject文件夹下面就会有一个隐藏文件夹.git，里面记录了这个文件的修改历史和不同版本</p>
+
+<h2 id="step-2-add-a-new-file-to-the-repository">Step 2: Add a new file to the repository</h2>
+<p>创建一个文件（可以手动创建）
+    $ touch file1.txt
+这个时候git会注意到文件夹有变化，但是它不会更新project。
+    git status</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
+On branch master
+Initial commit
+Untracked files:
+  <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to include <span class="k">in </span>what will be committed<span class="o">)</span>
+     file1.txt
+nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">"git add"</span> to track<span class="o">)</span>
+</code></pre></div></div>
+<p>我们也可以创建一个文件夹，但是这个文件夹里面一定要有文件，不然git是不会管它的。</p>
+
+<p>The difference between staging environment and the commit:</p>
+<ul>
+  <li>commit（名词）：是你修改project的记录，commits可以使你可以回到之前的状态。</li>
+  <li>staging environment or index：要修改的文件。
+ 当修改完文件后，git project会注意到这些变化，但是不会发生改变，要把你觉得可行的修改，加到index里面，然后commit。</li>
+</ul>
+
+<h2 id="step-3-add-a-file-to-the-staging-environment">Step 3: Add a file to the staging environment</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    git add file1.txt // 如果你修改了很多文件，可以使用 git add <span class="nb">.</span> 
+    // 如果你这个时候突然不想修改file1.txt，可以使用以下命令:
+    git rm —cached file1.txt    // 这个不会删除本地的文件
+    git rm file1.txt            // 会删除本地文件
+</code></pre></div></div>
+
+<h2 id="step-4-create-a-commit">Step 4: Create a commit</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit -m "Some messages here about the commit" 如果不填写message，这个commit是不生效的。
+</code></pre></div></div>
+
+<h2 id="step-5-create-a-new-branch">Step 5: Create a new branch</h2>
+<p>上面的操作都是在master branch里面操作的。比如说你设计了一个基础的网页app，这个时候你想把这个网页美化一下，但是又担心中间出问题，在没使用GitHub之前，我们可以复制一份，在复制的文件上进行修改。Git可以非常简单的帮助我们处理这种情况。类似以前的做法，原来的branch叫做master，复制的是一个新的branch，我们可以给它起个名字：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout -b my-new-branch
+</code></pre></div></div>
+
+<p>我们可以使用git branch来查看有多少个branch, 其中带 * 的是当前使用的branch。</p>
+
+<p>如何在不同branch之间切换：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout branch_name  
+</code></pre></div></div>
+
+<p>我们可以注意到，当我们切换不同branch时，我们的文件夹里面的内容也会随之改变，显示当前branch的版本</p>
+
+<h2 id="step-6-create-a-new-repository-on-github">Step 6: Create a new repository on GitHub</h2>
+<p>登录GitHub，create new repository. 简单。
+创建完之后，GitHub 会提供一个指向remote repository 的链接
+我们可以连接到这个remote repository，并把master branch里面的文件传上去：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git remote add origin https://github.com/cubeton/mynewrepository.git
+<span class="nv">$ </span>git push <span class="nt">-u</span> origin master
+Counting objects: 3, <span class="k">done</span><span class="nb">.</span>
+Writing objects: 100% <span class="o">(</span>3/3<span class="o">)</span>, 263 bytes | 0 bytes/s, <span class="k">done</span><span class="nb">.</span>
+Total 3 <span class="o">(</span>delta 0<span class="o">)</span>, reused 0 <span class="o">(</span>delta 0<span class="o">)</span>
+To https://github.com/cubeton/mynewrepository.git
+<span class="k">*</span> <span class="o">[</span>new branch]      master -&gt; master
+Branch master <span class="nb">set </span>up to track remote branch master from origin.
+</code></pre></div></div>
+
+<h2 id="step-7-push-a-branch-to-github">Step 7: Push a branch to GitHub</h2>
+<p>第一次use GitHub locally, 会让我们输入username and password.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git push origin my-new-branch
+Counting objects: 3, <span class="k">done</span><span class="nb">.</span>
+Delta compression using up to 8 threads.
+Compressing objects: 100% <span class="o">(</span>2/2<span class="o">)</span>, <span class="k">done</span><span class="nb">.</span>
+Writing objects: 100% <span class="o">(</span>3/3<span class="o">)</span>, 313 bytes | 0 bytes/s, <span class="k">done</span><span class="nb">.</span>
+Total 3 <span class="o">(</span>delta 0<span class="o">)</span>, reused 0 <span class="o">(</span>delta 0<span class="o">)</span>
+To https://github.com/cubeton/mynewrepository.git
+<span class="k">*</span> <span class="o">[</span>new branch]      my-new-branch -&gt; my-new-branch
+</code></pre></div></div>
+<p>“origin”的意义：
+其实是远程repository的别名</p>
+<blockquote>
+  <p>You might be wondering what that “origin” word means in the command above. What happens is that when you clone a remote repository to your local machine, git creates an alias for you. In nearly all cases this alias is called “origin.” It’s essentially shorthand for the remote repository’s URL. So, to push your changes to the remote repository, you could’ve used either the command: git push git@github.com:git/git.git yourbranchname or git push origin your_branch_name</p>
+</blockquote>
+
+<h2 id="step-8-create-a-pull-request-pr">Step 8: Create a Pull Request (PR)</h2>
+
+<blockquote>
+  <p>A pull request (or PR) is a way to alert a repo’s owners that you want to make some changes to their code. It allows them to review the code and make sure it looks good before putting your changes on the master branch.</p>
+</blockquote>
+
+<p>PR是为merge做准备的，所以这里可以选择merge which branch into which branch</p>
+
+<h2 id="step-9-merge-a-pr">Step 9: Merge a PR</h2>
+
+<p>Go ahead and click the green ‘Merge pull request’ button. This will merge your changes into the master branch.</p>
+
+<p>这里merge完之后，newbranch不会自动删除，还会继续存在，可以自己手动删掉。</p>
+
+<p>You can also see the hash code of the commit on the right hand side. A <strong><em>hash code</em></strong> is a unique identifier for that specific commit. It’s useful for referring to specific commits and when undoing changes (use the <code class="highlighter-rouge">git revert &lt;hash code number&gt;</code> command to backtrack).</p>
+
+<h2 id="step-10-get-changes-on-github-back-to-your-computer">Step 10: Get changes on GitHub back to your computer</h2>
+
+<p>In order to get the most recent changes that you or others have merged on GitHub, use the</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull origin master
+</code></pre></div></div>
+
+<p>command (when working on the master branch).</p>
+
+<p>Now we can use the <code class="highlighter-rouge">git log</code> command again to see all new commits.</p>
+
+<h2 id="more-about-github">More About GitHub:</h2>
+<p>Fork vs. Git clone
+Fork是GitHub的功能，并不存在于git命令中。fork是server端的clone。
+当我们不是一个project的contributor时，我们没办法对这个project做修改（push），但是我们可以把这个项目复制到自己的GitHub中，当作自己的东西，随意修改。这个复制就是fork。</p>
+
+<p>参考文章：<br />
+<a href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners">An Intro to Git and GitHub for Beginners (Tutorial)</a><br />
+<a href="https://guides.github.com/introduction/git-handbook/">Git Handbook</a><br />
+<a href="https://stackoverflow.com/questions/6286571/are-git-forks-actually-git-clones?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa">Fork vs. Git clone</a></p>
+
+
+    </article>
+    </div>
+  </div>
+</div>
+        </div>
+        <div class="col-md-2 d-none d-md-block" style="background-color: #f1f1f1; position: relative;">
+          
+            <div id="tocDiv" class="right_sidebar">
+              <h3>Content:</h3>
+              <div id="tocList">
+              </div>
+            </div>
+            <button class="btn btn-outline-success" onclick="topFunction()" id="myBtn" title="Go to top">
+              <i class="fa fa-arrow-up"></i>
+            </button>
+          
+        </div>
+      </div>
+    </div>
+    <footer class="py-5 bg-dark">
+  <div class="container text-center text-light">
+    <div class="row">
+      <div class="col">
+        
+          <div class="social-links">
+  <a target="_blank" href="https://github.com/jShawnTsui">
+    <i class="fab fa-github fa-2x"></i>
+  </a>
+  <a href="mailto:tsuihsiangyang@gmail.com">
+    <i class="fa fa-envelope fa-2x" ></i>
+  </a>
+  <a target="_blank" href="https://linkedin.com/in/xiangyang-cui-b36a76126/">
+    <i class="fab fa-linkedin fa-2x"></i>
+  </a>
+</div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        All content copyright Xiangyang Cui &copy; 2019.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+    <!-- JS -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="http://github.com/shawn4tech/website/assets/js/clipboard.min.js"></script>
+<script src="http://github.com/shawn4tech/website/assets/js/codeselect.js"></script>
+
+
+    <script>
+    $(document).ready(function() {                                                                          
+    $(tocList).empty();                                                            
+    
+    var prevH2Item = null;                                                            
+    var prevH2List = null;                                                            
+    
+    var index = 0;                                                                    
+    $("article h1, article h2").each(function() {                                                     
+    
+        //insert an anchor to jump to, from the TOC link.            
+        var anchor = "<a name='" + index + "'></a>";                 
+        $(this).before(anchor);                                     
+        
+        var li = "<li><a href='#" + index + "'>" + $(this).text() + "</a></li>"; 
+        
+        if( $(this).is("h1") ){                                     
+            prevH2List = $("<ul></ul>");                
+            prevH2Item = $(li);                                     
+            prevH2Item.append(prevH2List);                          
+            prevH2Item.appendTo("#tocList");                        
+        } else {                                                    
+            prevH2List.append(li);                                  
+        }                                                           
+        index++;                                                    
+    });                                                             
+    
+});  
+    </script>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+
+  </body>
+</html>

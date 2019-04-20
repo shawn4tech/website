@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shawn's Website</title>
+    <link rel="stylesheet" href="http://github.com/shawn4tech/website/assets/css/main.css">
+    
+    
+</head>
+  <body>
+    <!-- NAV -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a href="http://github.com/shawn4tech/website/" class="navbar-brand"><img src="http://github.com/shawn4tech/website/assets/images/logo.png" height="30" alt="logo"></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="http://github.com/shawn4tech/website/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://github.com/shawn4tech/website/pages" class="nav-link">Archive</a>
+                </li>
+                <li class="nav-item">
+                        <a href="http://github.com/shawn4tech/website/pages/search" class="nav-link">Search</a>
+                    </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://github.com/shawn4tech/website/pages/projects/" id="projects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Projects
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="projects">
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#web-progrmming">Web Programming</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#machine-learning">Machine Learning</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#computer-vision">Computer Vision</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#other-projects">Other Projects</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/projects/#undergrad-projects">Undergrad Projects</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="about" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="about">
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/aboutme">About Me</a>
+                        <a class="dropdown-item" href="http://github.com/shawn4tech/website/pages/aboutwebsite/">About Website</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <form class="form-inline d-none d-lg-block" action="http://www.google.com/search" method="get">
+            <input name="q" class="form-control mr-sm-2" type="search" placeholder="Google Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+    <div class="container-fluid">
+      <div class="row" style="min-height: 70vh;">
+        <div class="col-md-2 d-none d-md-block" style="background-color: #f1f1f1">
+          
+        </div>
+        <div class="col-md-8 markdown-body" style="padding: 15px 0px 15px 0px;">
+          <div id="post" class="container pt-3">
+  <div class="row">
+    <div class="col">
+    <p class="lead text-info">
+      Jun 22, 2018
+    </p>
+    <h1>Some Modifications on Sublime Text 3</h1>
+    <article>
+      <p>Sublime Text 3 is my favorite text editor. And here are some modifications I made. :ghost:</p>
+
+<h1 id="1-python-3-build-system">1. Python 3 Build System</h1>
+
+<p>The default Python Build System is based on Python2, and I use Python3 mainly, so I created a new Build System by myself.</p>
+
+<p><strong>Tools</strong> → <strong>Build System</strong> → <strong>New Build System</strong><br />
+Create a file: <em>Python3.sublime-build</em></p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"/Library/Frameworks/Python.framework/Versions/3.5/bin/python3"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+</span><span class="s2">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[ ]*File </span><span class="se">\"</span><span class="s2">(...*?)</span><span class="se">\"</span><span class="s2">, line ([0-9]*)"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>Or</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"python3"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-i"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-u"</span><span class="p">,</span><span class="w"> </span><span class="s2">"$file"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[ ]File </span><span class="se">\"</span><span class="s2">(...?)</span><span class="se">\"</span><span class="s2">, line ([0-9]*)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.python"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>Save at: <em>~Library/Application Support/Sublime Text 3/Packages/User</em><br />
+Go to <strong>Tools</strong> → <strong>Build System</strong> → check <strong>Python3</strong></p>
+
+<h1 id="2-java-build-system">2. Java Build System</h1>
+<p>Although Sublime Text 3 has JavaC build system, but it doesn’t execute the code. That’s why we need a new Java build system.</p>
+
+<p><strong>Tools</strong> → <strong>Build System</strong> → <strong>New Build System</strong><br />
+Create a file: <em>Java.sublime-build</em></p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"javac </span><span class="se">\"</span><span class="s2">$file_name</span><span class="se">\"</span><span class="s2"> &amp;&amp; java </span><span class="se">\"</span><span class="s2">$file_base_name</span><span class="se">\"</span><span class="s2">"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"shell"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^(...*?):([0-9]*):?([0-9]*)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.java"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>You can omit this part: <code class="highlighter-rouge">"shell": true,</code></p>
+
+<p>Save at: <em>~Library/Application Support/Sublime Text 3/Packages/User</em><br />
+Go to <strong>Tools</strong> → <strong>Build System</strong> → check <strong>Java</strong></p>
+
+<h1 id="3-java-build-system-for-separate-directories">3. Java Build System For Separate Directories</h1>
+
+<p><strong>Tools</strong> → <strong>Build System</strong> → <strong>New Build System</strong><br />
+Create a file: <em>JavaPlus.sublime-build</em></p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"javac -d ../Class </span><span class="se">\"</span><span class="s2">$file_name</span><span class="se">\"</span><span class="s2"> &amp;&amp; java -cp ../Class </span><span class="se">\"</span><span class="s2">$file_base_name</span><span class="se">\"</span><span class="s2">"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"shell"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"file_regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^(...*?):([0-9]*):?([0-9]*)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"selector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source.java"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>You can omit this part: <code class="highlighter-rouge">"shell": true,</code></p>
+
+<p>Save at: <em>~Library/Application Support/Sublime Text 3/Packages/User</em><br />
+Go to <strong>Tools</strong> → <strong>Build System</strong> → check <strong>JavaPlus</strong></p>
+
+<h1 id="4-markdown-live-preview">4. MarkDown Live Preview</h1>
+
+<p>Reference: https://packagecontrol.io/packages/MarkdownLivePreview</p>
+
+<ul>
+  <li>
+    <p><strong>Installation</strong><br />
+ Open the command palette (<kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd>) (Mac OS: <kbd>&#8984;Cmd</kbd>+<kbd>&#8679;Shift</kbd>+<kbd>P</kbd>)<br />
+ Search for: Package Control: Install Package<br />
+ Search for: MarkdownLivePreview<br />
+ hit enter<kbd>&#9166;</kbd></p>
+  </li>
+  <li>
+    <p><strong>Usage</strong><br />
+ You can choose to enable MarkdownLivePreview by pressing <kbd>ALT</kbd>+<kbd>M</kbd> (Mac OS: <kbd>&#8997;Alt</kbd>+<kbd>M</kbd>).</p>
+  </li>
+</ul>
+
+<p>But sadly, I find this package doesn’t support extended functions, like emoji, table, and Latex. And I find this <a href="https://stackedit.io/">online editor</a> is very nice. It supports not only emoji, table and Latex, but also UML diagrams.</p>
+
+<h1 id="5-theme">5. Theme</h1>
+
+<p>Reference: https://gist.github.com/umpirsky/5842174<br />
+<em>~Library/Application Support/Sublime Text 3/Packages</em><br />
+Create a new folder: <em>Theme</em><br />
+Create a file: <em>Default.sublime-theme</em></p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sidebar_container"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.tint"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.draw_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"label_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"min_size"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">75</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/full_button.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer1.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/full_button_indented.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer2.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/blue_highlight.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"target"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="s2">"speed"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.33</span><span class="p">,</span><span class="w"> </span><span class="s2">"interpolation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"smoothstep"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"layer2.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"pressed"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"pressed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hover"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hover"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="err">/**</span><span class="w"> </span><span class="err">Small</span><span class="w"> </span><span class="err">Icon</span><span class="w"> </span><span class="err">Buttons</span><span class="w"> </span><span class="err">**/</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/middle_button.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/blue_highlight.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"target"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="s2">"speed"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.33</span><span class="p">,</span><span class="w"> </span><span class="s2">"interpolation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"smoothstep"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"left"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/left_button.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"right"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/right_button.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"left"</span><span class="p">,</span><span class="w"> </span><span class="s2">"right"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/mini_button.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.draw_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hover"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/middle_button_selected.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"left"</span><span class="p">,</span><span class="w"> </span><span class="s2">"selected"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/left_button_selected.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"right"</span><span class="p">,</span><span class="w"> </span><span class="s2">"selected"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/right_button_selected.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"right"</span><span class="p">,</span><span class="w"> </span><span class="s2">"left"</span><span class="p">,</span><span class="w"> </span><span class="s2">"selected"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/mini_button_selected.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="err">/**</span><span class="w"> </span><span class="err">Scrollbars</span><span class="w"> </span><span class="err">**/</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scroll_bar_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/normal_bar_vertical.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"blur"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scroll_bar_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"horizontal"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/normal_bar_horizontal.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"blur"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scroll_corner_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/normal_bar_corner.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"puck_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/normal_thumb_vertical.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"blur"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"puck_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"horizontal"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/normal_thumb_horizontal.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"blur"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scroll_area_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"overlay_scroll_bars"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"overlay"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scroll_area_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"!overlay_scroll_bars"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"overlay"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scroll_bar_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"overlay_scroll_bars"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/overlay_bar_vertical.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"blur"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scroll_bar_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"overlay_scroll_bars"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"horizontal"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/overlay_bar_horizontal.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"blur"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"puck_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"overlay_scroll_bars"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/overlay_thumb_vertical.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"blur"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"puck_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"overlay_scroll_bars"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"horizontal"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/overlay_thumb_horizontal.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"blur"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"puck_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"overlay_scroll_bars"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"dark"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/overlay_dark_thumb_vertical.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"puck_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"overlay_scroll_bars"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"horizontal"</span><span class="p">,</span><span class="w"> </span><span class="s2">"dark"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/overlay_dark_thumb_horizontal.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"panel_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/status_bar.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"overlay_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.tint"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"popup_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.tint"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tool_tip_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/tool_tip_background.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tool_tip_label_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disclosure_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/arrow_right.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/arrow_right_over.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disclosure_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tree_row"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hover"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hover"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disclosure_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"expanded"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/arrow_down.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/arrow_down_over.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"table_row"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/row_highlight_wide.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"table_row"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tree_row"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/row_highlight_dark.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tree_row"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">TODO</span><span class="p">:</span><span class="w"> </span><span class="err">fix</span><span class="w"> </span><span class="err">selected</span><span class="w"> </span><span class="err">row</span><span class="w"> </span><span class="err">color</span><span class="w"> </span><span class="err">&amp;</span><span class="w"> </span><span class="err">shadow</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/light_x_bright.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"dirty"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dirty_indicator.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hover"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sidebar_tree"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"row_padding"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"indent"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"indent_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"indent_top_level"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.tint"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">34</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dark_content"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sidebar_heading"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">207</span><span class="p">,</span><span class="w"> </span><span class="mi">207</span><span class="p">,</span><span class="w"> </span><span class="mi">194</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"font.bold"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">29</span><span class="p">,</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sidebar_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">207</span><span class="p">,</span><span class="w"> </span><span class="mi">207</span><span class="p">,</span><span class="w"> </span><span class="mi">194</span><span class="p">]</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="mi">250</span><span class="p">],</span><span class="w"> </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sidebar_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tree_row"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">]</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">],</span><span class="w"> </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minimap_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"viewport_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">68</span><span class="p">,</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w"> </span><span class="mi">96</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text_line_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/input_field.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.tint"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status_bar"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/status_bar.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"min_size"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="err">/**</span><span class="w"> </span><span class="err">Quick</span><span class="w"> </span><span class="err">Panel</span><span class="w"> </span><span class="err">**/</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quick_panel"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"row_padding"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.tint"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dark_content"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quick_panel_row"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/panel_row.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quick_panel_row"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/panel_row_selected.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quick_panel_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"match_fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">225</span><span class="p">,</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"bg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">87</span><span class="p">,</span><span class="w"> </span><span class="mi">87</span><span class="p">,</span><span class="w"> </span><span class="mi">87</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"selected_fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"selected_match_fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"selected_bg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quick_panel_path_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"match_fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"bg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">87</span><span class="p">,</span><span class="w"> </span><span class="mi">87</span><span class="p">,</span><span class="w"> </span><span class="mi">87</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"selected_fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"selected_match_fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"selected_bg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quick_panel_score_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">28</span><span class="p">,</span><span class="w"> </span><span class="mi">177</span><span class="p">,</span><span class="w"> </span><span class="mi">239</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"bg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">87</span><span class="p">,</span><span class="w"> </span><span class="mi">87</span><span class="p">,</span><span class="w"> </span><span class="mi">87</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"selected_fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">166</span><span class="p">,</span><span class="w"> </span><span class="mi">229</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"selected_bg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mini_quick_panel_row"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/panel_row.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mini_quick_panel_row"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/panel_row_selected.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auto_complete"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"row_padding"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.tint"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dark_content"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auto_complete_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"match_fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"bg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"selected_fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"selected_match_fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"selected_bg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">156</span><span class="p">,</span><span class="w"> </span><span class="mi">185</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sheet_container_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.tint"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tabset_control"</span><span class="p">,</span><span class="w">
+
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tint_index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+
+        </span><span class="s2">"layer1.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/tabset_background_transparent.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"tab_overlap"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tab_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">180</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tab_min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tab_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mouse_wheel_switch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tabset_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"mouse_wheel_switches_tabs"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"mouse_wheel_switch"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Tabset</span><span class="w"> </span><span class="err">override</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">light</span><span class="w"> </span><span class="err">colors</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tabset_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_light"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer1.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/light_tabset_background_transparent.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Tabset</span><span class="w"> </span><span class="err">override</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">medium-dark</span><span class="w"> </span><span class="err">colors</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tabset_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_medium_dark"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/medium_dark_tabset_background_transparent.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="err">//</span><span class="w"> </span><span class="err">Tabset</span><span class="w"> </span><span class="err">override</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">dark</span><span class="w"> </span><span class="err">colors</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tabset_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_dark"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dark_tabset_background_transparent.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="err">/**</span><span class="w"> </span><span class="err">Tabs</span><span class="w"> </span><span class="err">**/</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w">
+
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/tab_mask_152_gradient2.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tint_index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">tint</span><span class="w"> </span><span class="err">layer</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="s2">"tint_modifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+
+        </span><span class="s2">"layer1.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+
+        </span><span class="s2">"layer2.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w">
+
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"max_margin_trim"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hit_test_level"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="err">/**</span><span class="w"> </span><span class="err">Tabs</span><span class="w"> </span><span class="err">(file</span><span class="w"> </span><span class="err">color</span><span class="w"> </span><span class="err">overrides)</span><span class="w"> </span><span class="err">**/</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_light"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer2.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/light_unselected_tab_bg2.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_medium"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer2.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/medium_unselected_tab_bg.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_medium_dark"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"tint_modifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer2.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/medium_dark_unselected_tab_bg2.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_dark"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"tint_modifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">230</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dark_tab_mask3.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dark_unselected_tab_bg2.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="err">/**</span><span class="w"> </span><span class="err">Selected</span><span class="w"> </span><span class="err">Tabs</span><span class="w"> </span><span class="err">**/</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/tab_mask_white.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">,</span><span class="w"> </span><span class="s2">"file_light"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer2.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/light_selected_tab_bg.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">,</span><span class="w"> </span><span class="s2">"file_medium"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer2.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/medium_selected_tab_bg.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">,</span><span class="w"> </span><span class="s2">"file_medium_dark"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"tint_modifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer2.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/medium_dark_selected_tab_bg.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">,</span><span class="w"> </span><span class="s2">"file_dark"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"tint_modifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer2.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dark_selected_tab_bg.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="err">/**</span><span class="w"> </span><span class="err">Tab</span><span class="w"> </span><span class="err">Labels</span><span class="w"> </span><span class="err">**/</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_medium"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">180</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">,</span><span class="w"> </span><span class="s2">"file_medium"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_medium_dark"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">140</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">,</span><span class="w"> </span><span class="s2">"file_medium_dark"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">230</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_dark"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">160</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">,</span><span class="w"> </span><span class="s2">"file_dark"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"fg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">230</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shadow_offset"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="err">/**</span><span class="w"> </span><span class="err">Tab</span><span class="w"> </span><span class="err">Close</span><span class="w"> </span><span class="err">Buttons</span><span class="w"> </span><span class="err">**/</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/grey_x.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dark_x.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/grey_x_light_shadow.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dark_x_light_shadow.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"show_tab_close_buttons"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"dirty"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dirty_circle.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"selected"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hover"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dark_x_light_shadow.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hover"</span><span class="p">,</span><span class="w"> </span><span class="s2">"dirty"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dirty_circle.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hover"</span><span class="p">,</span><span class="w"> </span><span class="s2">"selected"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_medium_dark"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/light_x.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"dirty"</span><span class="p">,</span><span class="w"> </span><span class="s2">"file_medium_dark"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dirty_circle_light.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hover"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_medium_dark"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/light_x_bright.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_dark"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/light_x.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"dirty"</span><span class="p">,</span><span class="w"> </span><span class="s2">"file_dark"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/light_x.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/dirty_circle_light.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_close_button"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hover"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"parents"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tab_control"</span><span class="p">,</span><span class="w"> </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"file_dark"</span><span class="p">]}],</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/light_x_bright.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer2.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/light_x.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer3.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fold_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/arrow_right.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default.arrow_right.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.inner_margin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fold_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hover"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fold_button_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"expanded"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/arrow_down.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer1.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/arrow_down_over.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grid_layout_control"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"border_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"border_color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_regex"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/icons/find_regex.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_case"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/icons/find_case.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_highlight"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/icons/find_highlight.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_in_selection"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/icons/find_inselection.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_reverse"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/icons/find_reverse.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_whole_word"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/icons/find_wholeword.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_wrap"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/icons/find_wrap.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_preserve_case"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/icons/replace_preserve_case.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_context"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/icons/context.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_use_buffer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theme - Default/icons/use_buffer.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"layer0.opacity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_file_type"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_folder"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_folder_loading"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_margin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+<p>Then, the theme changed automatically.</p>
+
+    </article>
+    </div>
+  </div>
+</div>
+        </div>
+        <div class="col-md-2 d-none d-md-block" style="background-color: #f1f1f1; position: relative;">
+          
+            <div id="tocDiv" class="right_sidebar">
+              <h3>Content:</h3>
+              <div id="tocList">
+              </div>
+            </div>
+            <button class="btn btn-outline-success" onclick="topFunction()" id="myBtn" title="Go to top">
+              <i class="fa fa-arrow-up"></i>
+            </button>
+          
+        </div>
+      </div>
+    </div>
+    <footer class="py-5 bg-dark">
+  <div class="container text-center text-light">
+    <div class="row">
+      <div class="col">
+        
+          <div class="social-links">
+  <a target="_blank" href="https://github.com/jShawnTsui">
+    <i class="fab fa-github fa-2x"></i>
+  </a>
+  <a href="mailto:tsuihsiangyang@gmail.com">
+    <i class="fa fa-envelope fa-2x" ></i>
+  </a>
+  <a target="_blank" href="https://linkedin.com/in/xiangyang-cui-b36a76126/">
+    <i class="fab fa-linkedin fa-2x"></i>
+  </a>
+</div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        All content copyright Xiangyang Cui &copy; 2019.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+    <!-- JS -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="http://github.com/shawn4tech/website/assets/js/clipboard.min.js"></script>
+<script src="http://github.com/shawn4tech/website/assets/js/codeselect.js"></script>
+
+
+    <script>
+    $(document).ready(function() {                                                                          
+    $(tocList).empty();                                                            
+    
+    var prevH2Item = null;                                                            
+    var prevH2List = null;                                                            
+    
+    var index = 0;                                                                    
+    $("article h1, article h2").each(function() {                                                     
+    
+        //insert an anchor to jump to, from the TOC link.            
+        var anchor = "<a name='" + index + "'></a>";                 
+        $(this).before(anchor);                                     
+        
+        var li = "<li><a href='#" + index + "'>" + $(this).text() + "</a></li>"; 
+        
+        if( $(this).is("h1") ){                                     
+            prevH2List = $("<ul></ul>");                
+            prevH2Item = $(li);                                     
+            prevH2Item.append(prevH2List);                          
+            prevH2Item.appendTo("#tocList");                        
+        } else {                                                    
+            prevH2List.append(li);                                  
+        }                                                           
+        index++;                                                    
+    });                                                             
+    
+});  
+    </script>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+
+  </body>
+</html>
